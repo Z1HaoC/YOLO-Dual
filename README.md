@@ -22,7 +22,9 @@
 | MobileNetV2/V3 | 轻量级网络，适合移动端部署 | 基于`torchvision.models`实现 |
 | EfficientNet B0/B1/V2_s | 高效网络，兼顾精度与速度 | 对齐`torchvision.models`预训练权重 |
 | ConvNeXt Tiny | 现代卷积网络，性能优异 | `models/backbone/convnext_tiny.yaml` |
-| YOLOv5 Backbone | 包含C3、C3-DCN、SPPF等模块 | `unet-lite/yolo5-seg/` |
+| YOLOv5 Backbone | 包含C3、C3-DCN、SPPF等模块 | `unet-lite/yolo7-seg/` |
+| YOLOv8 Backbone | 包含C3、C3-DCN、SPPF等模块 | `unet-lite/yolo8-seg/` |
+| YOLOv9 Backbone | 包含C3、C3-DCN、SPPF等模块 | `unet-lite/yolo9-seg/` |  
 
 > 所有Backbone支持加载ImageNet预训练权重，加速模型收敛。
 
@@ -34,7 +36,9 @@
 | YOLOv5风格分割头 | 结合Upsample/Concat操作，支持跳跃连接 | `unet-lite/yolo5-seg/seg_diceloss_yolov5.py` |
 | ResNet系列分割头 | 适配ResNet backbone的特征融合结构 | `unet-lite/Resnet50/seg_diceloss_Resnet50.py` |
 
-> 支持自定义损失函数（如Dice Loss），适合样本不平衡场景。
+后续还会增加Backbone 和 Head
+
+> 支持自定义损失函数Diceloss/Jaccardloss(IoU Loss)/Entrophy Loss，适合样本不平衡场景。
 
 
 ## 🛠️ 环境配置
@@ -45,6 +49,9 @@ pip install torch torchvision opencv-python numpy thop PyYAML
 
 
 ## 🔍 使用方法
+
+unet-lite中的方式已全部得到验证，优先使用
+tensorboard已配置可以直接可视化训练图片的实时分割训练结果
 
 ### 训练模型
 ```bash
