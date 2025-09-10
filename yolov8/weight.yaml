@@ -1,0 +1,14 @@
+# CamVid数据集类别权重配置
+# 权重值越高，表示该类别的重要性越高，模型会更关注这些类别
+sky: 1.0
+building: 2.0
+pole: 25.0
+road: 2.0
+pavement: 10.0
+tree: 3.0
+signsymbol: 25.0
+fence: 10.0
+car: 5.0
+pedestrian: 15.0
+bicyclist: 25.0
+unlabelled: 1.00
